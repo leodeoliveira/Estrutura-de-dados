@@ -137,6 +137,12 @@ class arvore():
                     pai.pFilhoMenor = None
                 else:
                     pai.pFilhoMaior = None
+                    
+                pai.atualizaAltura()
+                noAtual = pai
+                while (noAtual):
+					self.balancear(noAtual)
+					noAtual = noAtual.pai 	    
 
             # Caso dos nos com unico filho
             elif elemento.pFilhoMenor == None or elemento.pFilhoMaior == None:
@@ -224,39 +230,21 @@ class itemDaArvore():
 
 if __name__=='__main__':
     minhaArvore = arvore()
-    minhaArvore.inserir(6,"Trinta")
-    minhaArvore.inserir(8,"Vinte")
-    minhaArvore.inserir(12,"Quinze")
-    minhaArvore.balancear(minhaArvore.pRaiz)
-
+    minhaArvore.inserir(30,"Trinta")
+    minhaArvore.inserir(20,"Vinte")
+    minhaArvore.inserir(10,"Quinze")
+    minhaArvore.inserir(25,"Oito")
+    minhaArvore.inserir(50,"Oito")
+    minhaArvore.inserir(52,"Oito")
+    minhaArvore.inserir(32,"Oito")
+    minhaArvore.inserir(38,"Oito")
+    
+    minhaArvore.remover(None, minhaArvore.pRaiz, 20)
+    
     print "Percorrendo em ordem"
     minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
     print "\nPercorrendo pre ordem"
     minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
     print "\nPercorrendo pos ordem"
     minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
-
-
-    #~ minhaArvore.inserir(42,"Quarenta e dois")
-    #~ minhaArvore.inserir(35,"Trinta e cinco")
-    #~ minhaArvore.inserir(25,"Vinte e  cinco")
-    #~ minhaArvore.inserir(50,"Cinquenta")
-    #minhaArvore.pRaiz =  minhaArvore.inserirRec(minhaArvore.pRaiz, 32,"Trinta e dois")
-    #~ minhaArvore.inserir(38,"Trinta e oito")
-    #~ print "Percorrendo em ordem"
-    #~ minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
-    #~ print "\nPercorrendo pre ordem"
-    #~ minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
-    #~ print "\nPercorrendo pos ordem"
-    #~ minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
-    #~ print "\nRemovendo 42"
-    #~ minhaArvore.remover(None,minhaArvore.pRaiz, 42)
-    #~ print "\nRemovendo 30"
-    #~ minhaArvore.remover(None,minhaArvore.pRaiz, 30)
-    #~ print "\nPercorrendo em ordem"
-    #~ minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
-    #~ print "\nPercorrendo pre ordem"
-    #~ minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
-    #~ print "\nPercorrendo pos ordem"
-    #~ minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
 
